@@ -1,0 +1,158 @@
+﻿@*@model ModelPractice.Models.Employee*@
+@using ModelPractice.Models
+@model Employee
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width = device-width"/>
+    <title>Index</title>
+</head>
+<body>
+    @*<table>
+        <tr>
+            <td>Id</td>
+            <td>@Model.Id</td>
+        </tr>
+        <tr>
+            <td>
+                Name
+            </td>
+            <td>
+                @Model.Name
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Address
+            </td>
+            <td>
+                @Model.Address
+                @DateTime.Now
+
+            </td>
+        </tr>
+    </table>*@
+    @*@{
+        var a = 2;
+        var b = 4;
+        var c = 7;
+        var colorlist = new List<string>() { "red", "green", "yellow" };
+    }*@
+    <div>
+        @*@(a + b + c)
+        @{
+            foreach(string items in colorlist)
+            {
+                @items;
+            }
+            }*@
+
+        @*@{
+            bool a = true;
+            int b = 5;
+            int c = 6;
+        }
+
+        @if (a)
+        {
+            <h1>hello </h1>
+        }*@
+
+        @*<h1>  @(b > c ? "b is greater" : "c is greater"); </h1>
+
+
+        @for (int i = 0; i < 10; i++)
+        {
+            <h1>hello i am from @i</h1>
+        }
+
+        @{
+            var list = new List<int>()
+            {
+                1,2,3,4,5
+            };
+        }
+
+        @foreach (var item in list)
+        {
+           <h1> @item</h1>
+        }*@
+
+
+        @*@{
+                Employee emp1 = new Employee()
+                {
+                    Address = "Usa",
+                    Id = 1,
+                    Name = "Siddhu"
+                };
+
+        @emp1.Id
+                @emp1.Name
+                @emp1.Address
+            }*@
+
+        @* HTMLhelpers *@
+
+
+        @*
+                @helper MyListHelper(string[] str)
+           {
+             <ul>
+                 @foreach (var item in str)
+                 {
+                     <li> @item </li>
+                 }
+             </ul>
+            }
+        <label> List of all Names</label>
+            @MyListHelper(new string[] {"siddhesh", "sid", "Krishna" })
+        <br />
+        <label>List of my favourite games</label>
+            @MyListHelper(new string[] { "clashofclans", "bgmi", "csgo"})*@
+
+        @*BuiltIn HTML helpers*@
+
+        @*@Html.ActionLink("Click Me", "About", new {name ="Siddhesh"})*@
+        @*@{
+            string name = "siddhesh1";
+        }*@
+
+        @*@Html.TextBox("textbox1", name, new { id = "custom", @class ="customclass", style = "width :100%"})*@
+
+        @*@Html.CheckBox("checkbox1", true)*@
+        @*@Html.Password("pass")*@
+
+        @*Strongly Typed Helpers*@
+        @*@using (Html.BeginForm("myform"))
+        {
+            @Html.TextBoxFor(x => x.Name)
+            <br />
+            @Html.TextBoxFor(x => x.Address)
+            <br />
+            @Html.TextBoxFor(x => x.Id)
+
+            <br />
+    <input type="submit" name="name" value="Click here " />
+
+        }*@
+        @*Templated Htmlhelper -> it is used to display or input *@ 
+        @Html.DisplayName("Name")
+        <br />
+        @Html.DisplayNameFor(x => x.Dateofbirth)
+    <br />
+        @Html.DisplayText("Name") 
+    <br />
+        @Html.Display("Dateofbirth")  - @Html.EditorFor(x=>x.Dateofbirth)    <br />
+        @Html.Display("Name") - @Html.EditorFor(x => x.Name)
+    <br />
+        @*@Html.DisplayForModel()*@
+    <br />
+        @Html.EditorForModel()
+
+
+
+    </div>
+</body>
+</html>
